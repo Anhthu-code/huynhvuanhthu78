@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+   
+	<link href="https://fonts.google.com/specimen/Playwrite+HR+Lijeva?lang=vi_Latn" rel="stylesheet">
+    <style>
+        /* Áp dụng font Script */
+        body {
+            font-family: 'Dancing Script', cursive;
+        }
+   </style>
+   <style>
+body, h1, h2, h3, p, li, a, button {
+    font-family: 'Dancing Script', cursive;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+body {
+    color: #111111; /* Màu chữ mặc định */
+}
+
+/* Hiệu ứng chữ nổi */
+h1, h2, h3, p, li, a {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Tạo hiệu ứng chữ nổi */
+}
+
+/* Hiệu ứng đổi màu khi di chuột vào */
+body:hover, h1:hover, h2:hover, h3:hover, p:hover, li:hover, a:hover, button:hover {
+    color: #FF3333; /* Màu chữ khi di chuột vào */
+    text-shadow: 2px 2px 6px rgba(255, 215, 0, 0.8); /* Hiệu ứng bóng mờ khi hover */
+}
+
+/* Thêm cho button */
+button {
+    background-color: #CC0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s;
+}
+
+button:hover {
+    background-color: #33FFFF;
+    color: #111;
+}
+
+/* Thêm cho các liên kết */
+a {
+    text-decoration: none;
+    color: inherit; /* Màu mặc định của liên kết */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+    color: #00DD00; /* Màu khi di chuột vào liên kết */
+    text-shadow: 2px 2px 6px rgba(255, 215, 0, 0.8); /* Hiệu ứng chữ nổi khi hover */
+}
+</style>
+   <style>
+    
+  
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+        }
+
+        #container {
+            background-image: url('https://i.postimg.cc/fbVZ6dk9/ff9f7c34a9936469be0a4f4e9c2a5806.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main-box {
+            background-image: url('https://i.postimg.cc/0jF70D60/istockphoto-1170558429-612x612.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 90%;
+            width: 90%;
+            border-radius: 20px;
+            opacity: 0.8;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #main-box::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .vinyl {
+            width: 150px;
+            height: 150px;
+            background: url('https://i.postimg.cc/Jnn1wcWN/image-2.png');
+            background-size: cover;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .vinyl-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        button {
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #CC0000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #CC0000;
+        }
+
+        .rotate {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+            background-color: white;
+        }
+
+        th,
+        td {
+		padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+            font-family: 'Century Gothic (Body)';
+        }
+
+        /* Đặt chiều cao và kiểu cho thanh trượt */
+        #progressBar {
+            width: 100%;
+            height: 10px;
+            -webkit-appearance: none;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* Tùy chỉnh phần đã được trượt */
+        #progressBar::-webkit-slider-runnable-track {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        /* Tùy chỉnh phần chưa được trượt */
+        #progressBar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4caf50;
+            cursor: pointer;
+            margin-top: -5px;
+            /* Căn hình tròn vào giữa thanh */
+        }
+
+        /* Cho Firefox */
+        #progressBar::-moz-range-track {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        #progressBar::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4caf50;
+            cursor: pointer;
+        }
+
+
+        .time-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            margin: 10px auto;
+            font-size: 14px;
+            color: black;
+            text-align: center;
+        }
+
+        .link-page {
+            text-align: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .link-page:hover {
+            color: #FFD700;
+        }
+
+        .diagonal-cell {
+            position: relative;
+            width: 100px;
+            /* Điều chỉnh kích thước ô */
+            height: 50px;
+        }
+
+        .top-text {
+            top: 5px;
+            right: 10px;
+        }
+
+        .bottom-text {
+            bottom: 5px;
+            left: 10px;
+        }
+
+        .top-text,
+        .bottom-text {
+            position: absolute;
+            font-size: 14px;
+            /* Điều chỉnh kích thước chữ */
+            font-weight: bold;
+            color: black;
+            /* Màu chữ */
+        }
+
+        .diagonal-cell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            color: #000;
+            background: linear-gradient(to top right, transparent 49%, currentColor 50%, transparent 51%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="main-box">
+            <h1 style="color:#000080">Trang cá nhân</h1>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px; gap:10px;">
+                <div>
+				    <div style="height: 350px;display: flex; justify-content: center;  align-items: center; ">
+                        <img id="album" src="https://i.postimg.cc/13LdtqgJ/IMG-2828.png"
+                            style="max-height: 350px;width: 250px; border-radius: 10px; object-fit: contain;"
+                            alt="Ảnh cá nhân">
+                    </div>
+                    <button id="button-album">Album</button>
+                </div>
+
+                <div>
+                    <h2>Thông tin cá nhân:</h2>
+                    <ul style="font-size: 25px; margin-left: 20px;">
+                       <li >  <strong>Tên:</strong>  Huỳnh Vũ Anh Thư</li>
+                        <li><strong>Ngày sinh:</strong> 25/06/2007</li>
+                        <li><strong>Lớp:</strong> 12A<small>02</small></li>
+                        <li><strong>Cung hoàng đạo: </strong>Cự Giải</li>
+                        <li><strong>Sở thích:</strong> đọc sách, xem phim</li>
+                        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/buonngu2007?locale=vi_VN" target="_blank">Huỳnh Vũ Anh Thư</a></li>
+                    <li><strong> Bài hát yêu thích: </strong> <a href="https://www.youtube.com/watch?v=1FlWujCkepM" target="_blank"> Episode X</a> </li>
+                    </ul>
+                    <div style="display: flex; width: 100%;">
+                        
+                        <div>
+                            <div class="vinyl" id="vinyl">
+                                
+                            
+                        
+                  
+                </div>
+
+             </div>
+            </div>
+
+            <h2 style="text-align: center; margin-top: 20px;">Thời khóa biểu</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="diagonal-cell" colspan="2">
+                            <div class="text-container">
+                                <section class="bottom-text"><strong>Buổi</strong></section>
+                                <section class="top-text">Thứ</section>
+								</div>
+                        </th>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                        <th>Chủ nhật</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2"><strong>Sáng</strong></td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Chiều</strong></td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Đi học</td>
+                        <td>Ở nhà</td>
+                        <td>Ở nhà</td>
+                    </tr>
+                
+                    <tr>
+                        <td colspan="2"><strong>Tối</strong></td>
+                        <td>Đi học</td>
+                        <td>Ở nhà</td>
+                        <td>Ở nhà</td>
+                        <td>Ở nhà</td>
+                        <td>Ở nhà</td>
+                        <td>Đi học</td>
+                        <td>Ở nhà</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const vinyl = document.getElementById('vinyl');
+        const playButton = document.getElementById('playButton');
+        const audio = document.getElementById('audio');
+        const progressBar = document.getElementById('progressBar');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const buttonAlbum = document.getElementById('button-album');
+        const album = document.getElementById('album');
+        const listImage = [
+            "https://i.postimg.cc/nVqyXJWg/z6097682602220-4dd479846af5f47f65c550654a9cae0a.jpg",
+            "https://i.postimg.cc/HsHf5NDx/z6097680390183-141800374fc7e28a8e621c7a2151f293.jpg",
+            "https://i.postimg.cc/J03vvNJM/z6097676382657-8eb2553539901fff8ea55d15977e8825.jpg",
+            "https://i.postimg.cc/13LdtqgJ/IMG-2828.png"
+        ]
+        let isPlaying = false;
+        let currentIndex = 0;
+        buttonAlbum.addEventListener('click', () => {
+            currentIndex++;
+            album.src = listImage[currentIndex % listImage.length]
+        });
+        
+
+    </script>
+</body>
+
+</html>
